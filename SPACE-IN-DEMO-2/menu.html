@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Space Invaders</h1>
+        <div class="menu">
+            <button id="startButton">Start Game</button>
+            <button id="highScoreButton">High Score</button>
+            <button id="creditsButton">Credits</button>
+        </div>
+        <div id="highScore" class="hidden">
+            <h2>High Score</h2>
+            <p id="score">0</p> <!-- Skor dinamis akan ditampilkan di sini -->
+        </div>
+        <div id="credits" class="hidden">
+            <h2>Credits</h2>
+            <p>Created by: NAUFAL</p>
+            <p>Created by: ZAHWA</p>
+            <p>Created by: SYLA</p>
+            <p>Contact: konrjwjsbdb@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        
+        document.getElementById("startButton").addEventListener("click", function() {
+            window.location.href = "index.html";
+        });
+
+        // Alihkan tampilan Skor Tinggi
+        document.getElementById("highScoreButton").addEventListener("click", function() {
+            document.getElementById("highScore").classList.toggle("hidden");
+            document.getElementById("credits").classList.add("hidden");
+        });
+
+        // Alihkan tampilan Kredit
+        document.getElementById("creditsButton").addEventListener("click", function() {
+            document.getElementById("credits").classList.toggle("hidden");
+            document.getElementById("highScore").classList.add("hidden");
+        });
+
+        // Simulasikan pengambilan skor tinggi (untuk tujuan demo)
+        document.addEventListener("DOMContentLoaded", function() {
+            let highScore = localStorage.getItem("highScore") || 0; // Load high score from localStorage
+            document.getElementById("score").textContent = highScore;
+        });
+    </script>
+</body>
+</html>
